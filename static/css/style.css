@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+#header{
+    height: 100vh;
+    background-image: url(images/background.png);
+    background-position: center;
+    background-size: cover;
+}
+.container{
+    margin-right: 50px;
+    margin-left: 100px;
+}
+.logo{
+    margin-top: 30px;
+    width: 100px;
+}
+.header-text{
+    max-width: 3000px;
+    margin-top: 40px;
+}
+h1{
+    font-size: 32px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.square{
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background: #61b5fa;
+    margin: 15px 0;
+}
+.commom-btn{
+    padding: 18px 40px;
+    background: transparent;
+    outline: none;
+    border: 2px solid #61b5fa;
+    font-weight: bold;
+    cursor: pointer;
+}
+p{
+    font-size: 22px;
+    line-height: 18px;
+    line-height: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.header-text button{
+    margin-top: 20px;
+    margin-bottom: 60px;
+
+}
+.line-1{
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background: #61b5fa;   
+}
+.line-2{
+    height: 1px;
+    width: 80px;
+    display: inline-block;
+    background: #61b5fa;
+}
+.line-3{
+    height: 1px;
+    width: 60px;
+    display: inline-block;
+    background: #61b5fa;    
+}
+.line{
+    line-height: 8px;
+}
+
+
+
+/*-----about------*/
+#about{
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about-left-col{
+    flex-basis: 50%;
+}
+.about-left-col img{
+    width: 75%;
+    padding-left: 100px;
+}
+.about-right-col{
+    flex-basis: 50%;
+    text-align: left ;
+}
+.about-text{
+    max-width: 750px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.about-text h2{
+    margin: 50px 0 10px;
+    font-size: 28px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+/*-----disease------*/
+#disease{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.disease-row{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.disease-col{
+    flex-basis: 25%;
+    text-align: center;
+}
+.disease-col img{
+    width: 150px;
+}
+.disease-col h4{
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.disease-text{
+    margin: 60px auto 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.disease-text .line{
+    text-align: center;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+
+/*---feature----*/
+#feature{
+    padding: 90px 0;
+}
+.feature-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.feature-right-col{
+    flex-basis: 40%;
+}
+.feature-right-col img{
+    width: 60%;
+}
+.feature-left-col{
+    flex-basis: 60%;
+}
+.feature-text{
+    max-width: 750px;
+}
+
+
+/*---contact----*/
+#contact{
+    padding: 90px 0;
+}
+.contact-row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.contact-left-col{
+    flex-basis: 40%;
+}
+.contact-left-col img{
+    width: 100%;
+}
+.contact-right-col{
+    flex-basis: 60%;
+}
+.contact-text{
+    max-width: 750px;
+    text-align: left ;
+    margin-left: 300px;
+    display: inline-block;
+}
+
+
+/*---footer---*/
+#footer{
+    padding: 50px 0 30px;
+}
+hr{
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #61b5fa;
+}
+.footer-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-left-col{
+    flex-basis: 70%;
+    margin-top: 20px;
+}
+.footer-right-col{
+    flex-basis: 20%;
+    margin-top: 10px;
+}
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.link-title h4{
+    color: #61b5fa;
+    margin-bottom: 20px;
+}
+.link-title small{
+    font-size: 13px;
+    color: #777;
+}
+.footer-logo img{
+    width: 90px;
+}

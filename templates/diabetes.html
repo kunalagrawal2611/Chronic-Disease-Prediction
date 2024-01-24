@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <link rel="stylesheet" href="../static/css/styleform.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+function myFunction1(gen) {
+    document.getElementById('gender').value= gen;
+}
+function myFunction() {
+var name= $('#name').val();
+var age= $('#age').val();
+var gender= $('#gender').val();
+var polyuria= $('#polyuria').val();
+var polydipsia= $('#polydipsia').val();
+var sudden_weight_loss= $('#sudden_weight_loss').val();
+var weakness= $('#weakness').val();
+var polyphagia= $('#polyphagia').val();
+var genital_thrush=$('#genital_thrush').val();
+var visual_blurring= $('#visual_blurring').val();
+var itching= $('#itching').val();
+var irritability= $('#irritability').val();
+var delayed_healing= $('#delayed_healing').val();
+var partial_paresis= $('#partial_paresis').val();
+var muscle_stiffness= $('#muscle_stiffness').val();
+var Alopecia= $('#Alopecia').val();
+var Obesity= $('#Obesity').val();
+var res = "";
+  $.ajax({
+              url: "/joindiabetes",
+              type: "POST",
+              data: {name:name,
+              age:age,
+              gender:gender,
+              polyuria:polyuria,
+              polydipsia:polydipsia,
+              sudden_weight_loss:sudden_weight_loss,
+              weakness:weakness,
+              polyphagia:polyphagia,
+              genital_thrush:genital_thrush,
+              visual_blurring:visual_blurring,
+              itching:itching,
+              irritability:irritability,
+              delayed_healing:delayed_healing,
+              partial_paresis:partial_paresis,
+              muscle_stiffness:muscle_stiffness,
+              Alopecia:Alopecia,
+              Obesity:Obesity}
+          }).done(function(response) {
+
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    res +=val;
+                });
+
+                document.getElementsByName('display')[0].value= res;
+            });
+};
+  </script>
+<body>
+    <h1>Welcome to Diabetes prediction</h1>
+    <img src ="../static/images/diabetes.jpg" class="logo">
+    <h3>Please fill in all the details to get an accurate result!</h3>
+<section>
+    <p>
+        <label for="name">Name</label>
+        <input name="name" placeholder="Full name" id="name" type="text" size="30"><br>
+
+        <label for="age">Age</label>
+        <input name="age" placeholder="Age in numeric e.g.25" id="age" type="number" size="3"><br>
+
+       <label id="gender">Gender:</label><br>
+            <input type="radio" name="gender" onclick="myFunction1(this.value)" value="1"><label>Male</label><br>
+            <input type="radio" value="0" name="gender" onclick="myFunction1(this.value)"><label>Female</label><br>
+            <input type="radio" value="-1" name="gender" onclick="myFunction1(this.value)"><label>Other</label>
+        <br><br>
+
+        <label for="polyuria">Polyuria</label>
+        <input name="polyuria" placeholder="1 = yes; 0 = no" id="polyuria" type="number" size="3"><br>
+
+        <label for="polydipsia">Polydipsia</label>
+        <input name="polydipsia" placeholder="1 = yes; 0 = no" id="polydipsia" type="number" size="5"><br>
+
+        <label for="sudden_weight_loss">Sudden weight loss</label>
+        <input name="sudden_weight_loss" placeholder="1 = yes; 0 = no" id="sudden_weight_loss" type="number" size="5"><br>
+
+        <label for="weakness">Weakness</label>
+        <input name="weakness" placeholder="1 = yes; 0 = no" id="weakness" type="number" size="5"><br>
+
+        <label for="polyphagia">Polyphagia</label>
+        <input name="polyphagia" placeholder="1 = yes; 0 = no" id="polyphagia" type="number" size="5"><br>
+
+        <label for="genital_thrush">Genital thrush</label>
+        <input name="genital_thrush" placeholder="1 = yes; 0 = no" id="genital_thrush" type="number" size="5"><br>
+
+        <label for="visual_blurring">Visual blurring</label>
+        <input name="visual_blurring" placeholder="1 = yes; 0 = no" id="visual_blurring" type="number" size="5"><br>
+
+        <label for="itching">Itching</label>
+        <input name="itching" placeholder="1 = yes; 0 = no" id="itching" type="number" size="5"><br>
+
+        <label for="irritability">Irritability</label>
+        <input name="irritability" placeholder="1 = yes; 0 = no" id="irritability" type="number" size="5"><br>
+
+        <label for="delayed_healing">Delayed healing</label>
+        <input name="delayed_healing" placeholder="1 = yes; 0 = no" id="delayed_healing" type="number" size="5"><br>
+
+        <label for="partial_paresis">Partial paresis</label>
+        <input name="partial_paresis" placeholder="1 = yes; 0 = no" id="partial_paresis" type="number" size="5"><br>
+
+        <label for="muscle_stiffness">Muscle stiffness</label>
+        <input name="muscle_stiffness" placeholder="1 = yes; 0 = no" id="muscle_stiffness" type="number" size="5"><br>
+
+        <label for="Alopecia">Alopecia</label>
+        <input name="Alopecia" placeholder="1 = yes; 0 = no" id="Alopecia" type="number" size="5"><br>
+
+        <label for="Obesity">Obesity</label>
+        <input name="Obesity" placeholder="1 = yes; 0 = no" id="Obesity" type="number" size="5"><br>
+
+            <button id="clicked" onclick="myFunction()">Submit</button><br><br>
+        </p>
+    <p>
+        <label>Result: </label><input type="textbox" placeholder="Wait Till processing Ends" name="display">
+    </p>
+</section>
+
+<section id="footer">
+    <div class="container footer-row">
+        <hr>
+        <div class="footer-left-col">
+            <div class="footer-links">
+                <div class="link-title">
+                    <h4>Product</h4>
+                    <small>Our plan</small><br>
+                    <small>Free checkup</small>
+                </div>
+                <div class="link-title">
+                    <h4>About Us</h4>
+                    <small>Suggestions</small><br>
+                    <small>FAQs</small>
+                </div>
+                <div class="link-title">
+                    <h4>Address</h4>
+                    <small>Nagpur (MH)</small><br>
+                    <small>440013</small>
+                </div>
+                <div class="link-title">
+                    <h4>Contact Us</h4>
+                    <small>predict.disease@knp.com</small><br>
+                    <small>+91 8763529749</small>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-right-col">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <a href="index.html" ><img src="../static/images/logo.jpg"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,95 @@
+.logo{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+h3{
+    text-align: center;
+    font-size: 25px;
+    
+}
+section{
+   margin: 10px auto;
+   width: 450px;
+}
+form{
+    margin: 10px auto;
+    width: 450px;
+}
+input{
+    font-size: 18px;
+}
+input[type="text"]{
+    display: block;
+    margin-bottom: 10px;
+    width: 450px;
+}
+input[type="number"]{
+    display: block;
+    margin-bottom: 10px;
+    width: 450px;
+}
+input[type="radio"]{
+    margin: 0 8px 10px 18px;
+}
+label{
+    font-size: 20px;
+    color: #000;
+}
+.container{  
+    text-align: center;
+    width: auto;  
+    height: auto;
+}  
+#btn{  
+    font-size: 25px;  
+}  
+
+
+/*---footer---*/
+#footer{
+    padding: 50px 0 30px;
+
+}
+hr{
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #61b5fa;
+}
+.footer-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-left-col{
+    flex-basis: 60%;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.footer-right-col{
+    flex-basis: 25%;
+    margin-top: 10px;
+}
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.link-title h4{
+    color: #61b5fa;
+    margin-bottom: 20px;
+}
+.link-title small{
+    font-size: 13px;
+    color: #777;
+}
+.footer-logo img{
+    width: 90px;
+}

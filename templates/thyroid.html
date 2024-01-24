@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thyroid Prediction</title>
+    <link rel="stylesheet" href="../static/css/styleform.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+function myFunction1(gen) {
+    document.getElementById('gender').value= gen;
+}
+function myFunction() {
+var name= $('#name').val();
+var age= $('#age').val();
+var gender= $('#gender').val();
+var onthyroxine= $('#onthyroxine').val();
+var queryonthyroxine= $('#queryonthyroxine').val();
+var antithyroid= $('#antithyroid').val();
+var sick= $('#sick').val();
+var pregnant= $('#pregnant').val();
+var thyroidsurgery=$('#thyroidsurgery').val();
+var i131treatment= $('#i131treatment').val();
+var queryhypothyroid= $('#queryhypothyroid').val();
+var queryhyperthyroid= $('#queryhyperthyroid').val();
+var lithium= $('#lithium').val();
+var goitre= $('#goitre').val();
+var tumour= $('#tumour').val();
+var hypopituitary= $('#hypopituitary').val();
+var psych= $('#psych').val();
+var tshmeasured= $('#tshmeasured').val();
+var tsh= $('#tsh').val();
+var t3measured= $('#t3measured').val();
+var t3= $('#t3').val();
+var tt4measured= $('#tt4measured').val();
+var tt4= $('#tt4').val();
+var t4umeasured= $('#t4umeasured').val();
+var t4u= $('#t4u').val();
+var ftimeasured= $('#ftimeasured').val();
+var fti= $('#fti').val();
+var tbgmeasured= $('#tbgmeasured').val();
+var tbg= $('#tbg').val();
+var res = "";
+  $.ajax({
+              url: "/jointhyroid",
+              type: "POST",
+              data: {name:name,
+              age:age,
+              gender:gender,
+              onthyroxine:onthyroxine,
+              queryonthyroxine:queryonthyroxine,
+              antithyroid:antithyroid,
+              sick:sick,
+              pregnant:pregnant,
+              thyroidsurgery:thyroidsurgery,
+              i131treatment:i131treatment,
+              queryhypothyroid:queryhypothyroid,
+              queryhyperthyroid:queryhyperthyroid,
+              lithium:lithium,
+              goitre:goitre,
+              tumour:tumour,
+              hypopituitary:hypopituitary,
+              psych:psych,
+              tshmeasured:tshmeasured,
+              tsh:tsh,
+              t3measured:t3measured,
+              t3:t3,
+              tt4measured:tt4measured,
+              tt4:tt4,
+              t4umeasured:t4umeasured,
+              t4u:t4u,
+              ftimeasured:ftimeasured,
+              fti:fti,
+              tbgmeasured:tbgmeasured,
+              tbg:tbg}
+          }).done(function(response) {
+
+            response =response.result;
+                 $.each(response,function(key,val){
+                 console.log(val);
+                    res +=val;
+                });
+
+                document.getElementsByName('display')[0].value= res;
+            });
+};
+  </script>
+<body>
+    <h1>Welcome to Thyroid prediction</h1>
+    <img src ="../static/images/thyroid.png" class="logo">
+    <h3>Please fill in all the details to get an accurate result!</h3>
+
+    <section>
+    <p>
+        <label for="name">Name</label>
+        <input name="name" placeholder="Full name" id="name" type="text" size="30"><br>
+
+        <label for="age">Age</label>
+        <input name="age" placeholder="Age in numeric e.g.25" id="age" type="number" size="3"><br>
+
+        <label id="gender">Gender:</label><br>
+            <input type="radio" name="gender" onclick="myFunction1(this.value)" value="1"><label>Male</label><br>
+            <input type="radio" value="0" name="gender" onclick="myFunction1(this.value)"><label>Female</label><br>
+            <input type="radio" value="-1" name="gender" onclick="myFunction1(this.value)"><label>Other</label>
+        <br><br>
+
+        <label for="onthyroxine"> On Thyroxine</label>
+        <input name="onthyroxine" placeholder="1 = yes; 0 = no" id="onthyroxine" type="number" size="3"><br>
+
+        <label for="queryonthyroxine">Query on Thyroxine</label>
+        <input name="queryonthyroxine" placeholder="1 = yes; 0 = no" id="queryonthyroxine" type="number" size="5"><br>
+
+        <label for="antithyroid">On Antithyroid</label>
+        <input name="antithyroid" placeholder="1 = yes; 0 = no" id="antithyroid" type="number" size="5"><br>
+
+        <label for="sick">Sick</label>
+        <input name="sick" placeholder="1 = yes; 0 = no" id="sick" type="number" size="5"><br>
+
+        <label for="pregnant">Pregnant</label>
+        <input name="pregnant" placeholder="1 = yes; 0 = no" id="pregnant" type="number" size="5"><br>
+
+        <label for="thyroidsurgery">Thyroid surgery</label>
+        <input name="thyroidsurgery" placeholder="1 = yes; 0 = no" id="thyroidsurgery" type="number" size="5"><br>
+
+        <label for="i131treatment">I131 treatment</label>
+        <input name="i131treatment" placeholder="1 = yes; 0 = no" id="i131treatment" type="number" size="5"><br>
+
+        <label for="queryhypothyroid">Query on hypothyroid</label>
+        <input name="queryhypothyroid" placeholder="1 = yes; 0 = no" id="queryhypothyroid" type="number" size="5"><br>
+
+        <label for="queryhyperthyroid">Query on hyperthyroid</label>
+        <input name="queryhyperthyroid" placeholder="1 = yes; 0 = no" id="queryhyperthyroid" type="number" size="5"><br>
+
+        <label for="lithium">Lithium</label>
+        <input name="lithium" placeholder="1 = yes; 0 = no" id="lithium" type="number" size="5"><br>
+
+        <label for="goitre">Goitre</label>
+        <input name="goitre" placeholder="1 = yes; 0 = no" id="goitre" type="number" size="5"><br>
+
+        <label for="tumour">Tumour</label>
+        <input name="tumour" placeholder="1 = yes; 0 = no" id="tumour" type="number" size="5"><br>
+
+        <label for="hypopituitary">Hypopituitary</label>
+        <input name="hypopituitary" placeholder="1 = yes; 0 = no" id="hypopituitary" type="number" size="5"><br>
+
+        <label for="psych">Psych</label>
+        <input name="psych" placeholder="1 = yes; 0 = no" id="psych" type="number" size="5"><br>
+
+        <label for="tshmeasured">TSH Measured</label>
+        <input name="tshmeasured" placeholder="1 = yes; 0 = no" id="tshmeasured" type="number" size="5"><br>
+
+        <label for="tsh">TSH</label>
+        <input name="tsh" placeholder="0.005 to 530" id="tsh" type="number" size="5"><br>
+
+        <label for="t3measured">T3 Measured</label>
+        <input name="t3measured" placeholder="1 = yes; 0 = no" id="t3measured" type="number" size="5"><br>
+
+        <label for="t3">T3</label>
+        <input name="t3" placeholder="0 to 11" id="t3" type="number" size="5"><br>
+
+        <label for="tt4measured">TT4 Measured</label>
+        <input name="tt4measured" placeholder="1 = yes; 0 = no" id="tt4measured" type="number" size="5"><br>
+
+        <label for="tt4">TT4</label>
+        <input name="tt4" placeholder="2 to 430" id="tt4" type="number" size="5"><br>
+
+        <label for="t4umeasured">T4U Measured</label>
+        <input name="t4umeasured" placeholder="1 = yes; 0 = no" id="t4umeasured" type="number" size="5"><br>
+
+        <label for="t4u">T4U</label>
+        <input name="t4u" placeholder="0.25 to 2.12" type="number" id="t4u" size="5"><br>
+
+        <label for="ftimeasured">FTI Measured</label>
+        <input name="ftimeasured" placeholder="1 = yes; 0 = no" id="ftimeasured" type="number" size="5"><br>
+
+        <label for="fti">FTI</label>
+        <input name="fti" placeholder="2 to 395" id="fti" type="number" size="5"><br>
+
+        <label for="tbgmeasured">TBG Measured</label>
+        <input name="tbgmeasured" placeholder="1 = yes; 0 = no" id="tbgmeasured" type="number" size="5"><br>
+
+        <label for="tbg">Obesity</label>
+        <input name="tbg" placeholder="1 = yes; 0 = no" id="tbg" type="number" size="5"><br>
+
+        <button id="clicked" onclick="myFunction()">Submit</button><br><br>
+    </p>
+        <p>
+        <label>Result: </label><input type="textbox" placeholder="Wait Till processing Ends" name="display">
+    </p>
+</section>
+
+<section id="footer">
+    <div class="container footer-row">
+        <hr>
+        <div class="footer-left-col">
+            <div class="footer-links">
+                <div class="link-title">
+                    <h4>Product</h4>
+                    <small>Our plan</small><br>
+                    <small>Free checkup</small>
+                </div>
+                <div class="link-title">
+                    <h4>About Us</h4>
+                    <small>Suggestions</small><br>
+                    <small>FAQs</small>
+                </div>
+                <div class="link-title">
+                    <h4>Address</h4>
+                    <small>Nagpur (MH)</small><br>
+                    <small>440013</small>
+                </div>
+                <div class="link-title">
+                    <h4>Contact Us</h4>
+                    <small>predict.disease@knp.com</small><br>
+                    <small>+91 8763529749</small>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-right-col">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <a href="index.html" ><img src="../static/images/logo.jpg"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
